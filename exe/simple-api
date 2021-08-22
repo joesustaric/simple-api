@@ -1,13 +1,3 @@
-#! /usr/bin/env ruby
-# frozen_string_literal: true
+#!/usr/bin/env bash
 
-$LOAD_PATH << File.expand_path("../lib/simple_api", __dir__)
-
-require "simple_api"
-
-# Why? https://ruby-doc.org/core-3.0.0/IO.html#method-i-sync-3D
-
-$stdout.sync = true
-$stderr.sync = true
-
-SimpleApi.do_something
+bundle exec ruby lib/simple_api/server.rb -s Puma
