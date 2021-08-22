@@ -13,9 +13,6 @@ todo
 ## Architecture
 todo
 
-## Architecture Decision Records
-todo
-
 ## Monitoring
 todo
 
