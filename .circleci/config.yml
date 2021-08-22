@@ -3,7 +3,7 @@ orbs:
   ruby: circleci/ruby@0.1.2
 
 jobs:
-  build:
+  rspec-rubocop:
     docker:
       - image: circleci/ruby:3.0.0
     executor: ruby/default
@@ -20,7 +20,7 @@ jobs:
 workflows:
   build-and-deploy:
     jobs:
-      - build
+      - rspec-rubocop
 
   nightly:
     triggers:
@@ -31,4 +31,4 @@ workflows:
               only:
                 - main
     jobs:
-      - build
+      - rspec-rubocop
