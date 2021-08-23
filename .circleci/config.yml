@@ -3,7 +3,7 @@ orbs:
   ruby: circleci/ruby@0.1.2
 
 jobs:
-  rspec-rubocop:
+  test:
     docker:
       - image: circleci/ruby:3.0.0
     executor: ruby/default
@@ -18,9 +18,9 @@ jobs:
           command: bundle exec rake
 
 workflows:
-  run-tests-and-lint:
+  test-and-deploy:
     jobs:
-      - rspec-rubocop
+      - test
 
   nightly:
     triggers:
@@ -31,4 +31,4 @@ workflows:
               only:
                 - main
     jobs:
-      - rspec-rubocop
+      - test
