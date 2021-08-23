@@ -1,5 +1,5 @@
 ## Simple API
-A simple web API build with Ruby 3 and Sinatra Framework.
+A simple web API built with Ruby 3 and Sinatra Framework.
 Running in Heroku.
 
 [![<joesustaric>](https://circleci.com/gh/joesustaric/simple-api.svg?style=svg)](https://app.circleci.com/pipelines/github/yjoesustaric/simple-api?branch=main)
