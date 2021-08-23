@@ -8,7 +8,7 @@ WORKDIR /app
 RUN apt-get update
 
 COPY Gemfile Gemfile.lock ./
-RUN bundle install
+RUN gem install bundler:2.2.26 && bundle install
 
 COPY . .
 

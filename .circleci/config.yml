@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   ruby: circleci/ruby@0.1.2
+  heroku: circleci/heroku@1.2.6
 
 jobs:
   test:
@@ -16,11 +17,27 @@ jobs:
       - run:
           name: Run Rspec 🏃‍♂️ + Rubocop 🚔
           command: bundle exec rake
+  heroku-deploy:
+    executor: heroku/default
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 19.03.13
+      - heroku/install
+      - run: heroku container:login
+      - run: heroku container:push -a $HEROKU_APP_NAME web
+      - run: heroku container:release -a $HEROKU_APP_NAME web
 
 workflows:
   test-and-deploy:
     jobs:
       - test
+      - heroku-deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main
 
   nightly:
     triggers:
