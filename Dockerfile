@@ -16,5 +16,4 @@ COPY . .
 COPY ./.profile.d /app/.profile.d
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-# $PORT is assigned from Heroku at deploy time
 CMD exe/simple-api
