@@ -4,7 +4,7 @@ $LOAD_PATH << File.expand_path("../lib/simple_api", __dir__)
 
 require "rspec"
 require "rack/test"
-require "server"
+require "simple_api"
 
 ENV["APP_ENV"] = "test"
 
