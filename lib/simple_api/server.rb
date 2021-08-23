@@ -11,7 +11,7 @@ module SimpleApi
   class Error < StandardError; end
 
   # The Server API
-  class Server < Sinatra::Base
+  class Server < Sinatra::Application
     get "/" do
       "Hello World\n"
     end
