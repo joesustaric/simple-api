@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe "The SimpleApi App" do
-
   def app
     SimpleApi::Server
   end
