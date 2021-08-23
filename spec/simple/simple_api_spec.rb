@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe "The SimpleApi App" do
-  # include Rack::Test::Methods
 
   def app
     SimpleApi::Server
