@@ -34,7 +34,7 @@ workflows:
       - test
       - heroku-deploy:
           requires:
-            - build
+            - test
           filters:
             branches:
               only: main
