@@ -1,6 +1,6 @@
 ## [Unreleased]
 
-## [1.0.0] - 2017-06-23
+## [1.0.0] - 2021-08-23
 
 ### Added
 - GET / = Hello World
