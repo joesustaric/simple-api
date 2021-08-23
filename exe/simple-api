@@ -2,6 +2,8 @@
 
 [[ ! -z ${PORT+z} ]] && echo "Running on port $PORT" || PORT=4567
 
+[[ ! -z ${APP_ENV+z} ]] && echo "Running in $APP_ENV" || APP_ENV=production
+
 # Heroku supplies a $PORT on new deploys, otherwise use 4567
 
-bundle exec ruby lib/simple_api/main.rb -s Puma -p $PORT
+APP_ENV=$APP_ENV bundle exec ruby lib/simple_api/main.rb -s Puma -p $PORT
