@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-bundle exec ruby lib/simple_api/server.rb -s Puma
+[[ ! -z ${PORT+z} ]] && echo "Running on port $PORT" || PORT=4567
+
+bundle exec ruby lib/simple_api/server.rb -s Puma -p $PORT
