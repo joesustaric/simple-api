@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "json"
+
 RSpec.describe "The SimpleApi App" do
   def app
     SimpleApi::Server
@@ -23,6 +25,7 @@ RSpec.describe "The SimpleApi App" do
       get "/healthcheck"
 
       expect(last_response).to be_ok
+      expect(last_response.body).to eq({ status: "healthy" }.to_json)
     end
   end
 end

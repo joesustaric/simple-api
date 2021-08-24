@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "sinatra"
+require "json"
 
 # https://ruby-doc.org/core-3.0.0/IO.html#method-i-sync-3D
 $stdout.sync = true
@@ -18,7 +19,9 @@ module SimpleApi
     end
 
     get "/healthcheck" do
-      200
+      content_type :json
+
+      { status: "healthy" }.to_json
     end
   end
 end

@@ -1,5 +1,10 @@
 ## [Unreleased]
 
+## [1.1.2] - 2021-08-24
+
+### Added
+- json response for healthcheck
+
 ## [1.1.1] - 2021-08-24
 
 ### Added
