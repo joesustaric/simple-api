@@ -35,7 +35,7 @@ RSpec.describe "The SimpleApi App" do
         myapplication: [
           {
             version: SimpleApi::VERSION,
-            description: "pre-interview technical test",
+            description: "simple api",
             lastcommitsha: "abc57858585"
           }
         ]

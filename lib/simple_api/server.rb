@@ -30,7 +30,7 @@ module SimpleApi
         myapplication: [
           {
             version: VERSION,
-            description: "pre-interview technical test",
+            description: "simple api",
             lastcommitsha: "abc57858585"
           }
         ]
