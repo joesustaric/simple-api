@@ -9,9 +9,20 @@ RSpec.describe "The SimpleApi App" do
     expect(SimpleApi::VERSION).not_to be nil
   end
 
-  it "says hello" do
-    get "/"
-    expect(last_response).to be_ok
-    expect(last_response.body).to eq("Hello World\n")
+  describe "/" do
+    it "says hello" do
+      get "/"
+
+      expect(last_response).to be_ok
+      expect(last_response.body).to eq("Hello World\n")
+    end
+  end
+
+  describe "/healthcheck" do
+    it "responds with 200 when healthy" do
+      get "/healthcheck"
+
+      expect(last_response).to be_ok
+    end
   end
 end

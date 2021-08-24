@@ -15,5 +15,9 @@ module SimpleApi
     get "/" do
       "Hello World\n"
     end
+
+    get "/healthcheck" do
+      200
+    end
   end
 end
