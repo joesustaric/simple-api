@@ -12,6 +12,7 @@ module SimpleApi
 
   # The Server API
   class Server < Sinatra::Application
+
     get "/" do
       "Hello World\n"
     end
