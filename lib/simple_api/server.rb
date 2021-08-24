@@ -13,7 +13,6 @@ module SimpleApi
 
   # The Server API
   class Server < Sinatra::Application
-
     get "/" do
       "Hello World\n"
     end
@@ -22,6 +21,20 @@ module SimpleApi
       content_type :json
 
       { status: "healthy" }.to_json
+    end
+
+    get "/metadata" do
+      content_type :json
+
+      {
+        myapplication: [
+          {
+            version: VERSION,
+            description: "pre-interview technical test",
+            lastcommitsha: "abc57858585"
+          }
+        ]
+      }.to_json
     end
   end
 end

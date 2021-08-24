@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "json"
-
+# rubocop:disable Metrics/BlockLength
 RSpec.describe "The SimpleApi App" do
   def app
     SimpleApi::Server
@@ -28,4 +28,24 @@ RSpec.describe "The SimpleApi App" do
       expect(last_response.body).to eq({ status: "healthy" }.to_json)
     end
   end
+
+  describe "/metadata" do
+    it "responds with json metadata" do
+      response = {
+        myapplication: [
+          {
+            version: SimpleApi::VERSION,
+            description: "pre-interview technical test",
+            lastcommitsha: "abc57858585"
+          }
+        ]
+      }.to_json
+
+      get "/metadata"
+
+      expect(last_response).to be_ok
+      expect(last_response.body).to eq response
+    end
+  end
 end
+# rubocop:enable Metrics/BlockLength
