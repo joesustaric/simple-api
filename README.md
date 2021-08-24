@@ -4,6 +4,14 @@ Running in Heroku.
 
 [![<joesustaric>](https://circleci.com/gh/joesustaric/simple-api.svg?style=svg)](https://app.circleci.com/pipelines/github/yjoesustaric/simple-api?branch=main)
 
+## API
+
+`/`
+Returns `Hello World`.
+
+`/healthcheck`
+Returns `200` if the API service is healthy.
+
 ## Development
 
 This repository has a `.tools-version` file. You can set up [asdf](http://asdf-vm.com/guide/getting-started.html#_1-install-dependencies) to manage the versions of dependencies listed in that file. Currently it is only Ruby 3.0.0. Once you install `asdf` you will need to install the Ruby 3.0.0 version.
