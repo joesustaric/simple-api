@@ -75,11 +75,17 @@ heroku logs --tail -a joes-simple-api
 ```
 
 ## Extensions
+Not in priority order.
+
 - Add in ["rack/protection"](http://sinatrarb.com/rack-protection/) for protection from typical web attacks.
 - Add in [dependabot](https://dependabot.com/) for code vulnrability scanning.
 - Container scanning.
 - Use a different API key with restricted permissions to deploy to Heroku.
 - Adding a job that tests the latest Ruby version compatabiliity.
+- PR merge blocks on failed builds.
+- Test coverage gate. Fail build on x% or below test coverage.
+- Refactor code into controllers.
+- More monitoring and observability.
 
 ## Contributing
 PR's Welcome.
