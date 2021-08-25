@@ -1,5 +1,10 @@
 ## [Unreleased]
 
+## [1.3.0] - 2021-08-24
+
+### Added
+- GET `/metadata` now returns the latest code commit sha
+
 ## [1.2.0] - 2021-08-24
 
 ### Added
