@@ -10,7 +10,3 @@ RuboCop::RakeTask.new
 
 task default: %i[spec rubocop]
 
-desc "Write the latest git SHA to a REVISION file"
-task :gitsha do
-  `git rev-parse HEAD > REVISION`
-end

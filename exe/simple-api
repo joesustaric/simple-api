@@ -6,5 +6,5 @@
 
 # Heroku supplies a $PORT on new deploys, otherwise use 4567
 
-bundle exec rake gitsha
+git rev-parse HEAD > REVISION
 APP_ENV=$APP_ENV bundle exec ruby lib/simple_api/main.rb -s Puma -p $PORT

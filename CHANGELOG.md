@@ -1,6 +1,11 @@
 ## [Unreleased]
 
-## [1.3.1] - 2021-08-24
+## [1.3.2] - 2021-08-25
+
+### Fixed
+- Writing the REVISION file.
+
+## [1.3.1] - 2021-08-25
 
 ### Fixed
 - `bundle install --without test development` for production
