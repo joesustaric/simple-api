@@ -7,7 +7,6 @@ require "json"
 $stdout.sync = true
 $stderr.sync = true
 
-# The API
 module SimpleApi
   class Error < StandardError; end
 
@@ -20,18 +19,30 @@ module SimpleApi
     get "/healthcheck" do
       content_type :json
 
-      { status: "healthy" }.to_json
+      health = "unhealthy"
+      code = 503
+
+      if File.exist?("REVISION")
+        health = "healthy"
+        code = 200
+      end
+
+      body({ status: health.to_s }.to_json)
+      status code
     end
 
     get "/metadata" do
       content_type :json
+
+      last_commit_sha = "no commit sha found"
+      last_commit_sha = IO.read("REVISION") if File.exist?("REVISION")
 
       {
         myapplication: [
           {
             version: VERSION,
             description: "simple api",
-            lastcommitsha: "abc57858585"
+            lastcommitsha: last_commit_sha.strip.to_s
           }
         ]
       }.to_json

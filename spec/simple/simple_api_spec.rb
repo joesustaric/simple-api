@@ -21,30 +21,89 @@ RSpec.describe "The SimpleApi App" do
   end
 
   describe "/healthcheck" do
-    it "responds with 200 when healthy" do
-      get "/healthcheck"
+    context "Given there is a REVISION file with content" do
+      before { File.open("REVISION", "w") { |f| f.write "a git sha\n" } }
 
-      expect(last_response).to be_ok
-      expect(last_response.body).to eq({ status: "healthy" }.to_json)
+      context "When we call /healthcheck" do
+        it "responds with 200 when healthy" do
+          get "/healthcheck"
+
+          expect(last_response.status).to eq 200
+          expect(last_response.body).to eq({ status: "healthy" }.to_json)
+        end
+      end
+
+      after { File.delete("REVISION") if File.exist?("REVISION") }
+    end
+
+    context "Given there is no REVISION file" do
+      before { File.delete("REVISION") if File.exist?("REVISION") }
+
+      context "When we call /healthcheck" do
+        it "responds with 503 (service unavailable) " do
+          get "/healthcheck"
+
+          expect(last_response.status).to eq 503
+          expect(last_response.body).to eq({ status: "unhealthy" }.to_json)
+        end
+      end
     end
   end
 
   describe "/metadata" do
-    it "responds with json metadata" do
-      response = {
-        myapplication: [
-          {
-            version: SimpleApi::VERSION,
-            description: "simple api",
-            lastcommitsha: "abc57858585"
-          }
-        ]
-      }.to_json
+    context "Given the service is healthy" do
+      before do
+        File.open("REVISION", "w") { |f| f.write "some-git-sha\n" }
+      end
+      context "When we call /metadata" do
+        it "responds with json metadata" do
+          response = {
+            myapplication: [
+              {
+                version: SimpleApi::VERSION,
+                description: "simple api",
+                lastcommitsha: "some-git-sha"
+              }
+            ]
+          }.to_json
 
-      get "/metadata"
+          get "/metadata"
 
-      expect(last_response).to be_ok
-      expect(last_response.body).to eq response
+          expect(last_response).to be_ok
+          expect(last_response.body).to eq response
+        end
+
+        after do
+          File.delete("REVISION") if File.exist?("REVISION")
+        end
+      end
+    end
+
+    context "Given the service is unhealthy" do
+      before { File.delete("REVISION") if File.exist?("REVISION") }
+
+      context "When we call /metadata" do
+        it "responds with json metadata" do
+          response = {
+            myapplication: [
+              {
+                version: SimpleApi::VERSION,
+                description: "simple api",
+                lastcommitsha: "no commit sha found"
+              }
+            ]
+          }.to_json
+
+          get "/metadata"
+
+          expect(last_response).to be_ok
+          expect(last_response.body).to eq response
+        end
+
+        after do
+          File.delete("REVISION") if File.exist?("REVISION")
+        end
+      end
     end
   end
 end
