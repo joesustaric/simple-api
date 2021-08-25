@@ -7,6 +7,7 @@ gem "rake"
 gem "sinatra"
 
 group :test, :development do
+  gem "pry"
   gem "rack-test"
   gem "rspec", "~> 3.0"
   gem "rubocop", "~> 1.7"
