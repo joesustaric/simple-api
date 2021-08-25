@@ -1,6 +1,11 @@
 ## [Unreleased]
 
-## [1.3.0] - 2021-08-24
+## [1.3.1] - 2021-08-24
+
+### Fixed
+- `bundle install --without test development` for production
+
+## [1.3.0] - 2021-08-25
 
 ### Added
 - GET `/metadata` now returns the latest code commit sha
