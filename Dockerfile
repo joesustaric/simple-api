@@ -8,7 +8,8 @@ WORKDIR /app
 RUN apt-get update
 
 COPY Gemfile Gemfile.lock ./
-RUN gem install bundler:2.2.26 && bundle install --without test development
+RUN bundle config set --local without 'test development'
+RUN gem install bundler:2.2.26 && bundle install
 
 COPY . .
 
