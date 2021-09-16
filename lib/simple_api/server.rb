@@ -42,7 +42,8 @@ module SimpleApi
           {
             version: VERSION,
             description: "simple api",
-            lastcommitsha: last_commit_sha.strip.to_s
+            lastcommitsha: last_commit_sha.strip.to_s,
+            foo: "bar"
           }
         ]
       }.to_json
