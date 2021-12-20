@@ -61,7 +61,7 @@ RSpec.describe "The SimpleApi App" do
             myapplication: [
               {
                 version: SimpleApi::VERSION,
-                description: "simple api joe",
+                description: "simple api",
                 lastcommitsha: "some-git-sha",
                 foo: "bar"
               }
@@ -89,7 +89,7 @@ RSpec.describe "The SimpleApi App" do
             myapplication: [
               {
                 version: SimpleApi::VERSION,
-                description: "simple api joe",
+                description: "simple api",
                 lastcommitsha: "no commit sha found",
                 foo: "bar"
               }

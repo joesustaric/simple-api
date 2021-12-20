@@ -41,7 +41,7 @@ module SimpleApi
         myapplication: [
           {
             version: VERSION,
-            description: "simple api joe",
+            description: "simple api",
             lastcommitsha: last_commit_sha.strip.to_s,
             foo: "bar"
           }
