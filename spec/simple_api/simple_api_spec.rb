@@ -63,7 +63,7 @@ RSpec.describe "The SimpleApi App" do
                 version: SimpleApi::VERSION,
                 description: "simple api",
                 lastcommitsha: "some-git-sha",
-                foo: "bar"
+                foo: "foo"
               }
             ]
           }.to_json
@@ -91,7 +91,7 @@ RSpec.describe "The SimpleApi App" do
                 version: SimpleApi::VERSION,
                 description: "simple api",
                 lastcommitsha: "no commit sha found",
-                foo: "bar"
+                foo: "foo"
               }
             ]
           }.to_json
